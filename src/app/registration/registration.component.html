@@ -1,0 +1,67 @@
+<div class="container mt-2">
+    <h4>Sign In</h4>
+    <hr>
+    <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+        <div>
+            <span class="text-danger">*</span> <label class="m-3"><strong>User Name:</strong> </label>
+            <input type="text" placeholder="Enter your name" class="form-control" formControlName="name">
+            <span class="text-danger" *ngIf="name && name?.invalid">Please enter name</span>
+        </div>
+        <div>
+            <span class="text-danger">*</span><label class="m-3"><strong>Email:</strong> </label>
+            <input type="email" placeholder="Enter your email" class="form-control" formControlName="email" required>
+            <span class="text-danger" *ngIf="email && email?.invalid">Please enter email</span>
+        </div>
+
+        <div class="address p-3" formGroupName="address">
+            <h4 class="m-3"><strong>Address:</strong></h4>
+            <div>
+                <span class="text-danger">*</span> <label class="m-3"><strong>City:</strong> </label>
+                <input type="text" placeholder="Enter city" class="form-control" formControlName="city" required>
+                <span class="text-danger" *ngIf="city && city?.invalid">Please enter city</span>
+            </div>
+
+            <div>
+                <span class="text-danger">*</span><label class="m-3"> <strong>State:</strong></label>
+                <input type="text" placeholder="Enter state" class="form-control" formControlName="state" required>
+                <span class="text-danger" *ngIf="state && state?.invalid">Please enter state</span>
+            </div>
+
+            <div>
+                <span class="text-danger">*</span><label class="m-3"><strong>Pin code:</strong> </label>
+                <input type="text" placeholder="Enter pin code" class="form-control" formControlName="pincode" required>
+                <span class="text-danger" *ngIf="pincode && pincode?.invalid">Please enter pincode</span>
+            </div>
+
+            <div class="float-right">
+                <button type="button" class="btn btn-primary mt-3" (click)="addAdress()">Add Address</button>
+            </div>
+        </div>
+        <table *ngIf="displayAddressList" class="table">
+            <thead>
+                <tr *ngIf="addressList.length">
+                    <th>Sr No</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Pin Code</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor=" let address of addressList; index as i">
+                <tr>
+                    <td>Address:{{i+1}}</td>
+                    <td>City:{{address.city}}</td>
+                    <td>State:{{address.state}}</td>
+                    <td>Pin Code:{{address.pincode}}</td>
+                    <td> <button class="btn btn-danger" (click)="deteleAddress(i)" *ngIf="i">Delete</button></td>
+                </tr>
+
+               
+            </tbody>
+        </table>
+        <div class="text-center mt-5">
+            <button type="submit" class="btn btn-primary m-3" id="submit-btn">Register
+                User</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+body{
+    overflow-y: scroll;
+    min-height: 1000px;
+ }
+ input{
+     width: 800px;
+ }
+ .address{
+     margin-top: 15px;
+     border: 1px dotted black;
+ }
+ .float-right{
+     margin-top: 20px;
+     float: right;
+ }
+ #submit-btn{
+     margin-bottom: 100px !important;
+ }

@@ -1,0 +1,32 @@
+header {
+  padding: 15px;
+  height: 100px;
+  width: 100%;
+  background-color: aliceblue;
+}
+a {
+  text-decoration: none;
+  padding: 10px 25px;
+}
+
+a:focus {
+  background-color: blue;
+  color: white;
+  font-weight: bolder;
+}
+img {
+  height: 80px;
+}
+.footer {
+  font-size: large;
+  height: 50px;
+  width: 100%;
+  border: 2px solid black;
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  color: white;
+}
+.profile-image {
+  float: right;
+}

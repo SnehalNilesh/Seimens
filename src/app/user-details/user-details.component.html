@@ -1,0 +1,29 @@
+<div class="container">
+    <h4>Registered Users</h4>
+
+    <table class="user-details table table-striped">
+        
+            <thead>
+                <tr>
+                    <th colspan="4" class="text-center">User Details</th>
+                </tr>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let data of usersDetails; index as i">
+                <tr>
+                    <td>{{data.Name}}</td>
+                    <td>{{data.Email}}</td>
+                    <td>
+                        <div *ngFor="let address of data.Address">City:{{address.city}}State:{{
+                            address.state}}Pincode:{{address.pincode}}</div>
+                    </td>
+                    <td><button class="text-danger" (click)="deleteAddress(i)"> X </button></td>
+                </tr>
+            </tbody>
+    </table>
+</div>
